@@ -3,6 +3,7 @@ package com.Mindpoint.controller;
 import com.Mindpoint.domain.Message;
 import com.Mindpoint.domain.User;
 import com.Mindpoint.repos.MessageRepo;
+import com.Mindpoint.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,8 @@ import java.util.Map;
 public class MainController {
     @Autowired
     private MessageRepo messageRepo;
+    @Autowired
+    private UserRepo userRepo;
 
 
     @GetMapping("/") //слушает запросы по этому пути и возвращает какие то данные
@@ -26,7 +29,7 @@ public class MainController {
     }
 
     @GetMapping("/main") //главная страница
-    public String main(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
+    public String main(@RequestParam(required = false, defaultValue = "") String filter, Model model, @AuthenticationPrincipal User user) {
         Iterable<Message> messages =  messageRepo.findAll();
 
         if(filter != null && !filter.isEmpty()) //если фильтр не пустой
@@ -35,14 +38,14 @@ public class MainController {
 
         model.addAttribute("messages", messages);
         model.addAttribute("filter", filter);
-        ;
+
+        model.addAttribute("usernow", user.getUsername()); //Показывает имя профиля на главной странице
         return "main";
     }
 
     @PostMapping("/main") //обработка запросов из формы
     public String add(@AuthenticationPrincipal User user, @RequestParam String text, @RequestParam String tag, Map<String, Object> model) {
         messageRepo.save(new Message(text, tag, user )); //сохраняем в БД
-
         Iterable<Message> messages =  messageRepo.findAll();
         model.put("messages", messages);
         return "main";

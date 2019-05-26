@@ -1,6 +1,10 @@
 <#import "parts/common.ftl" as c>
 <#import "parts/login.ftl" as l>
 <@c.page>
+
+
+    <h3> Профиль: ${usernow!}</h3>
+
 <div>
     <form method="post">
         <input type="text" name="text" placeholder="Введите сообщение"/>
