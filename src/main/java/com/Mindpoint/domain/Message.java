@@ -13,6 +13,8 @@ public class Message {
     @ManyToOne(fetch = FetchType.EAGER) //указываем БД что одному пользователю соотвествует множество сообщений
     @JoinColumn(name = "user_id") //что бы поле называлось user_id
     private User author;
+    private String filename;
+
 
     public Message() { // Necessarily
     }
@@ -58,5 +60,13 @@ public class Message {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 }
