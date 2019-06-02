@@ -15,8 +15,10 @@
     </head>
     <body>
     <#include "navbar.ftl">
-    <div class="container mt-5">
-        <#nested> <!-- Принимает в себя вложенный код -->
+    <div class="p-3 mb-2 bg-light text-dark">
+        <div class="container mt-5">
+            <#nested> <!-- Принимает в себя вложенный код -->
+        </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

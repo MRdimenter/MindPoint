@@ -36,10 +36,10 @@
 
     <div class="card-columns">
         <#list messages as message> <!-- Цикл обхода списка во фримаркире -->
-            <div class="card my-3" style="width: 19rem;">
+            <div class=" card bg-light my-3" style="width: 19rem;">
                 <div class="card-img-top">
                     <#if message.filename??>
-                        <img width="303px" heigth="300px" src="/img/${message.filename}">
+                        <img width="302px" heigth="300px" src="/img/${message.filename}">
                     </#if>
                 </div>
                 <div class="m-2">
