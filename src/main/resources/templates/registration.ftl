@@ -5,6 +5,6 @@
 <h1 align="center">Регистрация</h1>
 
 ${message!}
+<div align="center"> <@l.login "/registration"  true/></div>
 
-<@l.login "/registration"/>
 </@c.page>

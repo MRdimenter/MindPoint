@@ -23,6 +23,9 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING) //Enum будет храниться в виде строки
     private Set<Role> roles; //будет соеденяться с текущей табличкой через  @JoinColumn(name = "user_id")
 
+    public boolean isAdmin() {
+        return roles.contains(Role.ADMIN);
+    }
 
     /**Implemention methods */
 

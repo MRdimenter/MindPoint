@@ -2,11 +2,12 @@
 <#import "parts/login.ftl" as l>
 <@c.page>
 
-    <h1 align="center">Вход</h1>
-    <@l.login "/login"/>
+
+    <div align="center">
+    <@l.login "/login" false/>
+    </div>
 
 
-    <h3><a href="/registration">Регистрация</a> </h3>
 
 
 </@c.page>

@@ -1,3 +1,5 @@
+<#include "security.ftl">
+<#include "login.ftl">
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="/">Mindpoint</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -13,9 +15,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="/main">Messages </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/user">Userlist </a>
-            </li>
+            <#if isAdmin>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user">Userlist </a>
+                </li>
+            </#if>
         </ul>
+
+        <div class="navbar-text mr-3">${name}</div>
+        <@logout />
     </div>
 </nav>
