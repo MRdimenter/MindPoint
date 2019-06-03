@@ -5,6 +5,9 @@
 <h1 align="center">Регистрация</h1>
 
 ${message!}
-<div align="center"> <@l.login "/registration"  true/></div>
+    <div align="center">
+        ${message?if_exists}
+        <@l.login "/registration"  true/>
+    </div>
 
 </@c.page>

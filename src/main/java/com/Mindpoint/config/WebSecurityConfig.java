@@ -22,15 +22,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests() //авторизация
-                .antMatchers("/", "/registration", "/static/**").permitAll() //полный доступ для главной страницы
-                    .anyRequest().authenticated() //для всех остальных запросов требуем авторазицию
+                .antMatchers("/", "/registration", "/static/**", "*/activate/*").permitAll() //полный доступ для главной страницы
+                .anyRequest().authenticated() //для всех остальных запросов требуем авторазицию
                 .and()
-                    .formLogin() //включаем форму логин
-                    .loginPage("/login") //страница логина находится на таком мепинге
-                    .permitAll() //разрешаем этим пользоваться всем
+                .formLogin() //включаем форму логин
+                .loginPage("/login") //страница логина находится на таком мепинге
+                .permitAll() //разрешаем этим пользоваться всем
                 .and()
-                    .logout() //выход из профиля
-                    .permitAll(); //разрешаем пользоваться всем
+                .logout() //выход из профиля
+                .permitAll(); //разрешаем пользоваться всем
     }
 
     @Override

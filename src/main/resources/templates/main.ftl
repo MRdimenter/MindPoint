@@ -44,7 +44,7 @@
                 </div>
                 <div class="m-2">
                     <span>${message.text}</span>
-                    <i>${message.tag}</i>
+                    <i class="text-primary">${message.tag}</i>
                 </div>
                 <div class="card-footer text-muted">
                     ${message.authorName}

@@ -6,14 +6,25 @@
                    name="username"/>
             <small id="emailHelp" class="form-text text-muted">We'll never share your name with anyone else.</small>
         </div>
+        <#if isRegisterForm>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Email</label>
+                <input class="form-control  col-sm-3" id="exampleInputPassword1" placeholder="example@some.com"
+                       type="email"
+                       name="email"/>
+                <input type="hidden" name="_csrf" value="${_csrf.token}">
+            </div>
+        </#if>
         <div class="form-group">
             <label for="exampleInputPassword1"> Password </label>
             <input class="form-control  col-sm-3" id="exampleInputPassword1" placeholder="Password" type="password"
                    name="password"/>
             <input type="hidden" name="_csrf" value="${_csrf.token}">
+        </div>
+        <div>
             <#if !isRegisterForm><a href="/registration">Регистрация</a> </#if>
         </div>
-        <input type="submit" class="btn btn-primary" value="<#if isRegisterForm>Create<#else>Sign In </#if>"/>
+        <input type="submit" class="btn btn-primary mt-2" value="<#if isRegisterForm>Create<#else>Sign In </#if>"/>
     </form>
 </#macro>
 

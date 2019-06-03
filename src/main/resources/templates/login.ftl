@@ -4,6 +4,7 @@
 
 
     <div align="center">
+        ${message?if_exists}
     <@l.login "/login" false/>
     </div>
 

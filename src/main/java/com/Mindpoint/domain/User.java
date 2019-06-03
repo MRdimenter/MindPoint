@@ -18,6 +18,9 @@ public class User implements UserDetails {
     private String password;
     private boolean active;
 
+    private String email;
+    private String activationCode;
+
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER) //fetch означает как будут подгружаться роли во время загрузки страницы
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id")) //данное поле будет храниться в отдельной таблицы для которой мы не описывали мепинг
     @Enumerated(EnumType.STRING) //Enum будет храниться в виде строки
@@ -96,5 +99,21 @@ public class User implements UserDetails {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getActivationCode() {
+        return activationCode;
+    }
+
+    public void setActivationCode(String activationCode) {
+        this.activationCode = activationCode;
     }
 }
